@@ -71,7 +71,7 @@
 		}
 		
 		if(sum%10==0){
-			chek[j]=chek[j].join('').match(/.{1,4}/g);
+			chek[j]=chek[j].join('').match(/.{1,4}/g);//match(/.{1,4}/g) посмотрела в и-нете, что оно  так может разбить)))
 			
 			console.log(chek[j]);
 			let tr = document.createElement('tr');
