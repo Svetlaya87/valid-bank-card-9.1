@@ -17,6 +17,7 @@
 
 	for (let item of result){
 
+		/* 
 		if (/\-/.test(item)){
 			item=item.split('-').join('').split('');
 			sort.push(item);
@@ -28,6 +29,11 @@
 			item=item.split('');
 			sort.push(item);
 		}
+		*/
+
+		// оптимизация кода
+		item=item.split(/[\s\-]*/);//подсказали. Если дефиз стоит НЕ в квадратных скобках, а просто в середине строки, то не экранировать.	Если же - стоит в квадратных скобках (а там он имеет специальное значение), то его не нужно экранировать только если он первый или последний в этих скобках.Но я на всякий случай сэкранировала
+		sort.push(item);
 		
 	};
 
@@ -47,14 +53,10 @@
 	
 	let sum=0;
 
-	/*function addTag(card){
-		let td = document.createElement('td');
-		td.innerHTML=`${card.join('')}`;
-	};*/
-
+	
 	for(let j=0; j<chek.length;j++) {
 
-			
+		sum=0;	
 		for(let i=0; i<chek[j].length; i++){
 
 			if (i%2!=0){
@@ -80,7 +82,7 @@
 			tr.innerHTML=`${chek[j].join(' ')}`;
 			tbody.appendChild(tr);
 		}
-		sum=0;
+		//sum=0; это правильно, но лучше сбрасывать перед вложенным циклом
 	};	
 
 
